@@ -4,7 +4,7 @@ const {
   newMessageValidations,
   handleValidationErrors,
 } = require("../middlewares/messageValidations");
-const { postMessage } = require("../controllers/userController");
+const { postMessage, getMessages } = require("../controllers/userController");
 
 router.post(
   "/new-message",
@@ -22,5 +22,17 @@ router.post(
     }
   }
 );
+
+router.get("/messages", async (req, res) => {
+  try {
+    const result = await getMessages();
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+});
 
 module.exports = router;

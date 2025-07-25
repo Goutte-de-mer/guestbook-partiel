@@ -16,3 +16,16 @@ exports.postMessage = async ({ name, message }) => {
     throw new Error("Impossible de créer le message");
   }
 };
+
+exports.getMessages = async () => {
+  try {
+    const messages = await Message.find().sort({ createdAt: -1 });
+    return { success: true, messages };
+  } catch (error) {
+    console.error(
+      "Erreur lors de la récupération des messages :",
+      error.message
+    );
+    throw new Error("Impossible de récupérer les messages");
+  }
+};
