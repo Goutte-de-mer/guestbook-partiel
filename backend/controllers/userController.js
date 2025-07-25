@@ -3,8 +3,8 @@ const Message = require("../db/models/Message");
 exports.postMessage = async ({ name, message }) => {
   try {
     const newMessage = await Message.create({
-      name,
-      message,
+      name: name.trim(),
+      message: message.trim(),
     });
     return {
       success: true,

@@ -1,1 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap");
 @import "tailwindcss";
+
+@theme {
+  --color-black: #515151;
+  --color-beige: #fff5e5;
+  --color-green: #76cba7;
+  --color-light-green: #b1d7b2;
+  --font-body: "Quicksand", sans-serif;
+}
+
+.body {
+  @apply font-body min-h-screen text-black;
+}
