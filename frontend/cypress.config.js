@@ -5,6 +5,8 @@ export default defineConfig({
     baseUrl: 'http://localhost:3000',
     video: true,
     screenshotOnRunFailure: true,
+    videosFolder: 'cypress/videos',
+    screenshotsFolder: 'cypress/screenshots',
     supportFile: false,
     setupNodeEvents(on, config) {
       on('task', {
