@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "nodemon ./bin/www",
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "jest",
+    "test:unit": "jest --testPathPattern=unit",
+    "test:integration": "jest --testPathPattern=integration"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -15,5 +18,9 @@
     "express-validator": "^7.2.1",
     "mongoose": "^8.16.4",
     "morgan": "^1.10.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
   }
 }
