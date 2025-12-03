@@ -74,7 +74,7 @@ jobs:
         run: |
           npm start &
         env:
-          CONNECTION_STRING: ${{ secrets.CONNECTION_STRING || 'mongodb://localhost:27017/test' }}
+          CONNECTION_STRING: "mongodb://localhost:27017/test"
 
       - name: Start frontend server
         working-directory: ./frontend
@@ -90,17 +90,6 @@ jobs:
         working-directory: ./frontend
         run: npm run test:e2e
         continue-on-error: true
-
-      - name: List Cypress artifacts
-        if: always()
-        working-directory: ./frontend
-        run: |
-          echo "=== Videos ==="
-          ls -la cypress/videos/ 2>/dev/null || echo "No videos directory"
-          find cypress/videos -type f 2>/dev/null || echo "No videos found"
-          echo "=== Screenshots ==="
-          ls -la cypress/screenshots/ 2>/dev/null || echo "No screenshots directory"
-          find cypress/screenshots -type f 2>/dev/null || echo "No screenshots found"
 
       - name: Upload Cypress videos
         if: always()
